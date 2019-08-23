@@ -1,0 +1,85 @@
+<div class="movedown">
+    <div class="container">
+        <h2 class="text">
+            Course Details
+        </h2>
+
+        <button id="addbtn" class="btn btn-success" (click)="loadAddnew()" data-toggle="modal" data-target="#myModal">
+            <span class="glyphicon glyphicon-plus"></span> Add New Course
+        </button>
+
+        <table class="table" *ngIf="dataavailbale">
+            <thead>
+                <tr>
+                    <th scope="col">Course Code</th>
+                    <th scope="col">Course Title</th>
+                    <th scope="col">Course Credits</th>
+                    <th scope="col">Course Description</th>
+                    <th scope="col" style="align-content: center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let e of crslist let i = index ">
+                    <td scope="col">{{i+1}}</td>
+                    <td scope="col">{{e.crseTitle}}</td>
+                    <td scope="col">{{e.crsCredits}}</td>
+                    <td scope="col">{{e.crsDescription}}</td>
+                    <td style="display:none">{{e.crseCode}}</td>
+                    <td scope="col">
+                        <button type="button" class="btn btn-default btn-primary" (click)="loadnewForm(e.crseCode,e.crsCredits,e.crseTitle,
+                e.crsDescription)" data-toggle="modal" data-target="#myModaledit">
+                            <span class="glyphicon glyphicon-edit"></span> Edit
+                        </button>
+                        |
+                        <button type="button" class="btn btn-default btn-danger"
+                            (click)="deleteconfirmation(e.crseCode)">
+                            <span class="glyphicon glyphicon-trash"></span> Delete
+                        </button>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-primary">Course Add</h4>
+                    </div>
+                    <div class="modal-body">
+
+
+                        <app-course-add #crsadd (nameEvent)="RefreshData($event)"></app-course-add>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" #closeBtn class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="myModaledit" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Edit</h4>
+                    </div>
+                    <div class="modal-body">
+                        <app-course-update (nameEvent)="RefreshData($event)" [isReset]="resetForm" #regForm>
+                        </app-course-update>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

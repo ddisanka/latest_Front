@@ -1,0 +1,76 @@
+#addbtn
+{
+    margin-top: 30px;
+    float: right;
+    background-color: rgb(42, 177, 9);
+}
+#edit
+{
+    background-color: rgba(30, 111, 218, 0.918);
+}
+#delete
+{
+    background-color: rgba(245, 8, 8, 0.918);
+}
+.text{
+    font-size: 25px;
+    margin-top: 30px;
+    float: left;
+    color: #FFD700;
+    font-weight:lighter;
+
+}
+
+
+.modal.fade .modal-header {
+    height: 90px;
+    background-color: #FFD700;
+    color:black;
+    font-size: 15px;
+    
+  }
+  .modal-title
+  {
+      font-size: 22px;
+  }
+  .modal-content
+  {
+      background-color: #2D3142;
+      opacity: 0.9;
+  }
+  .addstudent
+  {
+      width: 40px;
+      height: 40px;
+      float: left;
+      margin-left: 10px;
+      margin-top: 5px;
+  }
+  .modal-footer
+  {
+      background-color:#c47714;
+  }
+.close
+{
+    color: rgb(0, 0, 0);
+}
+.modal.body{
+    background-color: crimson;
+}
+.table
+{
+    background-color:#2F4F4F;
+    opacity: 0.9;
+}
+.head
+{
+    color: #FFD700;
+}
+.tabledata
+{
+    color: aliceblue;
+}
+.btn-danger
+{
+    background-color: #ff0000;
+}

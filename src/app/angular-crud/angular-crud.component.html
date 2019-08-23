@@ -1,0 +1,112 @@
+
+<div class="movedown">
+  <div class="container">
+    <h2 class="text">
+      Student Details
+    </h2>
+
+    <div id="moveup">
+        <button id="addbtn" class="btn btn-success" (click)="loadAddnew()" data-toggle="modal" data-target="#myModal">
+            <span class="glyphicon glyphicon-plus"></span> Add New Student
+        </button>
+    </div>
+
+    <table class="table" *ngIf="dataavailbale">
+      <thead class="head">
+        <tr>
+          <th scope="col">Student Number</th>
+          <th  scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone Number</th>
+          <th scope="col">Gender</th>
+          <th scope="col">DOB</th>
+          <th scope="col" style="align-content: center">Action</th>
+        </tr>
+      </thead>
+      <tbody class="tabledata" >
+        <tr *ngFor="let e of stdlist let i = index ">
+          <td scope="col">{{i+1}}</td>
+          <td scope="col">{{e.fname}}</td>
+          <td scope="col">{{e.lname}}</td>
+          <td scope="col">{{e.email}}</td>
+          <td scope="col">{{e.phone}}</td>
+          <td scope="col">{{e.gender=="1"?'Male':'Female'}}</td>
+          <td scope="col">{{e.dob}}</td>
+          <td style="display:none">{{e.id}}</td>
+          <td scope="col">
+
+            <button id="edit" type="button" class="btn btn-default btn-primary"
+              (click)="loadnewForm(e.id,e.email,e.fname,e.lname,e.gender,e.phone,e.dob)" data-toggle="modal"
+              data-target="#myModaledit">
+              <span class="glyphicon glyphicon-edit"></span> Edit
+            </button>
+            |
+            <button id="delete" type="button" class="btn btn-default btn-danger" (click)="deleteconfirmation(e.id)">
+              <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <div id="myModal" class="modal fade" role="dialog" style="display:none;" >
+
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <!-- <h4 class="modal-primary">Student Add</h4> -->
+            <div>
+                <img class="addstudent" src="../../assets/images/student_add-512.png" alt="">
+              </div>
+
+            <h4 class="modal-title" id="myModalLabel" align="center">Student Registration</h4>
+
+            <div class="modal-body">
+                <p>Please fill up the form for Quick Registration.</p>
+              </div>
+          </div>
+          <div class="modal-body">
+
+
+            <app-student-add #stdadd (nameEvent)="RefreshData($event)"></app-student-add>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" #closeBtn class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="myModaledit" class="modal fade" role="dialog" style="display:none;" aria-hidden="false">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            <div>
+                <img class="addstudent" src="../../assets/images/education_edit-512.png" alt="">
+              </div>
+
+            <h4 class="modal-title" align="center">Edit Student</h4>
+            <div class="modal-body">
+                <p>Please fill up the form for Quick Modification.</p>
+              </div>
+          </div>
+          <div class="modal-body">
+            <app-student-update (nameEvent)="RefreshData($event)" [isReset]="resetForm" #regForm></app-student-update>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

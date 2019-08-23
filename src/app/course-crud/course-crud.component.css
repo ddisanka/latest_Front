@@ -1,0 +1,13 @@
+#addbtn
+{
+    float: right;
+    margin-bottom: 10px;
+}
+.movedown
+{
+    padding-top: 100px;
+}
+.text{
+    text-align: center;
+    color: darkgoldenrod;
+}

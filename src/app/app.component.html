@@ -1,0 +1,88 @@
+<mat-toolbar class="color">
+  <div fxShow="true" fxHide.gt-sm="true">
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+
+  <div>
+    <img class="image" src="../assets/images/195-1950901_school-logo-revamp-nether-stowe-school-logo.png" alt="">
+  </div>
+  <a mat-button class="companyName" [routerLink]="'home'">
+
+    <span>ANC University</span>
+
+  </a>
+
+  <span class="example-spacer"></span>
+  <div class="links" fxShow="true" fxHide.lt-md="true">
+    <a mat-button [routerLink]="'home'"> Home</a>
+    <a mat-button [routerLink]="'student'"> Students</a>
+    <a mat-button [routerLink]="'course'"> Courses </a>
+  </div>
+
+</mat-toolbar>
+<mat-sidenav-container fxFlexFill class="example-container">
+
+  <mat-sidenav class="bgcolor" #sidenav fxLayout="column" mode="over" opened="false" fxHide.gt-sm="true">
+    <div class="back" fxLayout="column">
+      <a class="matlist" mat-list-item [routerLink]="'home'"> Home</a>
+      <a class="matlist" mat-list-item [routerLink]="'student'"> Students</a>
+      <a class="matlist" mat-list-item [routerLink]="'course'"> Courses</a>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content fxFlexFill>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+<!-- <mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button>
+      <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+    </button>
+    <h1>ANC University Management System</h1>
+    <span class="menu-spacer"></span>
+    <div>
+      <a mat-button [routerLink]="'home'"> Home </a>
+      <a mat-button [routerLink]="'student'"> Students </a>
+      <a mat-button [routerLink]="'course'"> Courses </a>
+
+    </div>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row>
+    <span style="font-size: 12px;">SimpleCRM helps you easily manage your contacts</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <mat-nav-list>
+
+      <a mat-list-item [routerLink]="'home'"> Home</a>
+      <a mat-list-item [routerLink]="'student'"> Students </a>
+      <a mat-list-item [routerLink]="'course'"> Courses </a>
+      <a mat-list-item (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
+
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    
+    <div style="height: 88vh;">
+        <router-outlet></router-outlet>
+    </div>
+  
+  </mat-sidenav-content>
+
+</mat-sidenav-container>  -->
+
+
+
+
+
+<!-- <div class="container">
+  <router-outlet></router-outlet>
+ </div> -->
