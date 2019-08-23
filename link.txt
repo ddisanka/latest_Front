@@ -1,0 +1,1 @@
+https://identityserver.github.io/Documentation/docsv2/overview/mvcGettingStarted.html
